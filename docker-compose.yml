@@ -1,25 +1,20 @@
 services:
   web:
     build: .
-    command: python manage.py runserver
-    volumes:
-      - .:/usr/src/app
     ports:
       - "5000:5000"
-    depends_on:
-      - db
     environment:
       - FLASK_ENV=development
-      - DATABASE_URL=postgresql://postgres:postgres@db:5432/notes
-
+      - DATABASE_URL=postgresql://user:password@db:5432/mydatabase
+      - SECRET_KEY=your_secret_key
+      - DEBUG=True
+    depends_on:
+      - db
   db:
-    image: postgres:13
+    image: postgres
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: notes
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
-volumes:
-  postgres_data:
+      POSTGRES_DB: mydatabase
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"

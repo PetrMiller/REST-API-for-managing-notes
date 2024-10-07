@@ -1,11 +1,16 @@
-1) launching Docker's containers 
- 
-docker-compose up
+1) first we write the Docker config file, docker-compose.yml
 
-2) check running containers
+2) build an image 
+`docker-compose build`
 
-docker ps
+3) lifting container
+`docker container-compose up -d`
 
-3) launching the app
+4) stop container
+`docker container-compose stop`
 
-py main.py
+5) launching container
+`docker container-compose start`
+
+6) delete container
+`docker container-compose down`

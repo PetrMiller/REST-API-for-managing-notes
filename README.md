@@ -1,16 +1,13 @@
-1) first we write the Docker config file, docker-compose.yml
-
-2) build an image 
+1) Run docker container 
+ 
 `docker-compose build`
+`docker-compose up -d`
 
-3) lifting container
-`docker container-compose up -d`
+2) check running containers
 
-4) stop container
-`docker container-compose stop`
+`docker ps`
 
-5) launching container
-`docker container-compose start`
+3) launching the app
 
-6) delete container
-`docker container-compose down`
+`docker-compose start`
+

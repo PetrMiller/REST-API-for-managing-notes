@@ -5,12 +5,12 @@ from .services import create_note, get_all_notes
 
 note_bp = Blueprint('notes', __name__)
 
-@note_bp.route('/notes', methods=['GET'])
+@note_bp.route('/list-notes', methods=['GET'])
 def list_notes():
     notes = get_all_notes()
     return jsonify([{"id": note.id, "title": note.title, "content": note.content} for note in notes])
 
-@note_bp.route('/notes', methods=['POST'])
+@note_bp.route('/add-notes', methods=['POST'])
 def add_note():
     data = request.get_json()
     title = data.get('title')
